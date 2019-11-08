@@ -1,0 +1,35 @@
+:root {
+    font-size: 10px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: inherit;
+}
+
+body {
+  @include centerAbsolute;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: $violet;
+  transition: background-color .5s .2s linear;
+}
+
+.wrapper {
+  width: 50rem;
+  height: 15rem;
+  display: flex;
+  padding: 0 2rem;
+  justify-content: space-evenly;
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  background-color: #fff;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
