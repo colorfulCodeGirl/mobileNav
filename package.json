@@ -1,0 +1,24 @@
+{
+  "name": "mobile-nav",
+  "version": "1.0.0",
+  "description": "mobile navigation for learning reasons",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vanilna/mobileNav.git"
+  },
+  "author": "Oleksandra Vytiahlovska",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vanilna/mobileNav/issues"
+  },
+  "homepage": "https://github.com/Vanilna/mobileNav#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
