@@ -1,0 +1,48 @@
+@import "variables";
+@import "mixins";
+
+:root {
+    font-size: 10px;
+}
+
+body {
+  @include centerAbsolute;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: $violet;
+}
+
+.wrapper {
+  width: 50rem;
+  height: 15rem;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  background-color: #fff;
+}
+
+.button-wrapper {
+  @include centerAbsolute;
+  flex: 1;
+  transition: all 2s 0 linear;
+  svg {
+    width: 5rem;
+    max-height: 100%;
+    stroke-width: 5;
+    stroke: #000000;
+    &.search {
+        stroke-width: 0;
+    }
+  }
+  p {
+    display: none;
+    font-family: $font;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  &.active {
+      @include active($violet);
+  }
+}

@@ -1,0 +1,28 @@
+@mixin centerAbsolute {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+@mixin active($color) {
+    flex: 2;
+    align-self: center;
+    height: 75px;
+    border-radius: 45px;
+    padding: 0 2rem;
+    margin: 2rem;
+    background-color: lighten($color, 35);
+    display: flex;
+    justify-content: space-evenly;
+    svg {
+        stroke-width: 5;
+        stroke: $color;
+        fill: $color;
+    }
+    p {
+        display: block;
+        color: $color;
+    }
+}
