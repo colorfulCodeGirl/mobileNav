@@ -124,4 +124,13 @@ button {
   outline: none;
 }
 
+.blink {
+  width: 100%;
+  height: 80%;
+  border-radius: 50%;
+  border: 0.5rem solid transparent;
+  transform: scale(0);
+  transition: transform 0.1s 0s linear;
+}
+
 /*# sourceMappingURL=styles.css.map */

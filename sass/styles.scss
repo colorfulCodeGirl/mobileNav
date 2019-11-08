@@ -43,3 +43,12 @@
       outline: none;
   }
 }
+
+.blink {
+    width: 100%;
+    height: 80%;
+    border-radius: 50%;
+    border: .5rem solid transparent;
+    transform: scale(0);
+    transition: transform .1s 0s linear;
+}
