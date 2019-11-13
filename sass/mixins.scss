@@ -7,7 +7,6 @@
 }   
 
 @mixin active($color) {
-  flex: 2;
   background-color: lighten($color, 35);
   display: flex;
   svg {

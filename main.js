@@ -1,9 +1,10 @@
 const navBar = document.querySelector('.wrapper');
+const btns = navBar.querySelectorAll('.button');
 
-const changeBodyBackground = (openThis) => {
-  const typeOfButton = openThis.classList[1];
+const changeBodyBackground = (newBtn) => {
+  const typeOfBtn = newBtn.classList[1];
   const body = document.querySelector('body');
-  switch (typeOfButton) {
+  switch (typeOfBtn) {
     case 'home':
       body.style.backgroundColor = '#5b37b7';
       break;
@@ -21,21 +22,20 @@ const changeBodyBackground = (openThis) => {
   }
 };
 
-const changeSection = (e) => {
-  const currentlyOpen = navBar.querySelector('.active');
-  let openThis = '';
-  if (e.target.nodeName !== 'BUTTON') {
-    const newClassName = e.target.classList[0];
-    if (newClassName === 'wrapper') {
-      return;
-    } // skip function, because none off the buttons where clicked
-    openThis = navBar.querySelector(`.${newClassName}`);
-  } else {
-    openThis = e.target;
-  }
-  currentlyOpen.classList.remove('active');
-  openThis.classList.add('active');
-  changeBodyBackground(openThis);
+const openBtn = (newBtn) => {
+  newBtn.style.transitionDelay = '2s';
+  newBtn.classList.remove('blink');
+  newBtn.classList.add('active');
+  changeBodyBackground(newBtn);
+  newBtn.style.transitionDelay = '.07s';
 };
 
-navBar.addEventListener('click', changeSection);
+function changeBtn() {
+  const current = navBar.querySelector('.active');
+  const newBtn = this;
+  newBtn.classList.add('blink');
+  current.classList.remove('active');
+  setTimeout(() => openBtn(newBtn), 100);
+}
+
+btns.forEach((btn) => btn.addEventListener('click', changeBtn));

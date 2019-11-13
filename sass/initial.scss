@@ -1,21 +1,23 @@
 :root {
-    font-size: 10px;
-    box-sizing: border-box;
-    margin: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+  margin: 0;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: inherit;
 }
 
 body {
-  @include centerAbsolute;
   height: 100vh;
   margin: 0;
   padding: 0;
   background-color: $violet;
-  transition: background-color .5s .2s linear;
+  transition: background-color 0.5s 0.2s linear;
+  @include centerAbsolute;
 }
 
 .wrapper {
@@ -30,6 +32,10 @@ body {
 }
 
 button {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
+  //focus is removed, because it's mobile nav imitation
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,15 +1,33 @@
-@import "variables";
-@import "mixins";
-@import "initial";
+@import 'variables';
+@import 'mixins';
+@import 'initial';
 
-.button-wrapper {
-  @include centerAbsolute;
+.button {
   flex: 1;
-  transition: flex .5s 0s linear;
+  transition: transform .07s 0s linear;
   align-self: center;
   height: 75px;
   border-radius: 45px;
   padding: 0 2rem;
+  transform: scaleX(1);
+  @include centerAbsolute;
+
+  $types: (
+    'home': $violet,
+    'hart': $pink,
+    'search': $yellow,
+    'user': $blue,
+  );
+
+  @each $type, $color in $types {
+    &.active.#{$type} {
+      @include active($color);
+    }
+  }
+
+  &.blink {
+    transform: scaleX(0);
+  }
   svg {
     width: 4rem;
     max-height: 100%;
@@ -27,28 +45,4 @@
     font-size: 2rem;
     font-weight: bold;
   }
-  &.active.home {
-    @include active($violet);
-  }
-  &.active.hart {
-    @include active($pink);
-  }
-  &.active.search {
-    @include active($yellow);
-  }
-  &.active.user {
-    @include active($blue);
-  }
-  &:focus {
-      outline: none;
-  }
-}
-
-.blink {
-    width: 100%;
-    height: 80%;
-    border-radius: 50%;
-    border: .5rem solid transparent;
-    transform: scale(0);
-    transition: transform .1s 0s linear;
 }
