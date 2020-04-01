@@ -45,9 +45,9 @@ button {
   flex: 1;
   transition: transform .07s 0s linear;
   align-self: center;
+  padding: 0 1rem;
   height: 60px;
   border-radius: 45px;
-  padding: 0 2rem;
   transform: scaleX(1);
   display: grid;
   grid-template-columns: 1fr;
@@ -56,6 +56,7 @@ button {
   align-items: center; }
   @media (min-width: 520px) {
     .button {
+      padding: 0 2rem;
       height: 75px; } }
   .button.active.home {
     background-color: #c5b7e9;
@@ -96,7 +97,7 @@ button {
   .button.blink {
     transform: scaleX(0); }
   .button svg {
-    width: 4rem;
+    width: 2rem;
     max-height: 100%;
     stroke-width: 5;
     stroke: #000000;
@@ -105,7 +106,7 @@ button {
       stroke-width: 0; }
     @media (min-width: 520px) {
       .button svg {
-        width: 2.5rem; } }
+        width: 4rem; } }
   .button p {
     display: none;
     padding-left: 1rem;
