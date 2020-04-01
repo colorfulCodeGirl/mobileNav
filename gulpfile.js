@@ -1,28 +1,27 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable func-names */
 const { series, watch, src, dest } = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 
 sass.compiler = require('node-sass');
 
-const scss = function() {
+function scss() {
   return src('./app/sass/styles.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(dest('./app/css'))
-    .pipe(browserSync.reload({ stream: true }));
-};
+    .pipe(browserSync.stream());
+}
 
-const serve = function() {
+function serve() {
   browserSync.init({
     server: {
       baseDir: './app',
     },
   });
 
-  watch('/app/sass/*.scss', scss);
+  watch('/app/sass/*.scss', scss).on('change', browserSync.reload);
   watch('/app/*.html').on('change', browserSync.reload);
-};
+}
 
 exports.scss = scss;
-exports.default = serve;
+exports.default = series(serve, sass);
